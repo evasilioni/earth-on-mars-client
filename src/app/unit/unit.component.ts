@@ -1,5 +1,7 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import { Unit } from '../domain/unit';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import { ReviewComponent } from '../review/review.component';
 
 @Component({
   selector: 'unit',
@@ -10,13 +12,11 @@ export class UnitComponent implements OnInit {
 
   @Input() unit: Unit[];
   @Input() rating: number;
-  public isUpdated: boolean = false;
 
   public ratingRange = [];
   public unratingRange = [];
-  public isOpened: boolean = false;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
     
@@ -30,13 +30,22 @@ export class UnitComponent implements OnInit {
     }
   }
 
-  openPostReview(){
-    if(this.isOpened == false){
-      this.isOpened = true;
-    } else {
-      this.isOpened = false;
-    }
-  }
+  openDialog(unit) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.position = {
+      'top': '0',
+      left: '0'
+    };
+  
+    dialogConfig.data = {
+      id: unit.id,
+      title: unit.title
+    };
 
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(ReviewComponent, dialogConfig);
+  }
 
 }

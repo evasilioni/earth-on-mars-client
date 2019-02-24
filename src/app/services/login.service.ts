@@ -6,8 +6,6 @@ import { map } from 'rxjs/operators';
   providedIn:'root'
 })
 export class LoginService {
-  private authToken : string;
-  private name : string;
 
   constructor(private http: HttpClient) {
   }
@@ -15,17 +13,10 @@ export class LoginService {
   login(username: string, password: string) {
     return this.http.post('http://localhost:8085/signin', { username: username, password: password})
         .pipe(map((res: any) => {
-          this.authToken = res.token;
-          this.name = res.firstname + ' ' + res.lastname;
+          localStorage.setItem("token",res.token);
+          localStorage.setItem("username",res.firstname + ' ' + res.lastname)
           return res;
         }));
   }
-  
-  public getToken(): string {
-    return this.authToken;
-  }
 
-  public getUserDetails(): string {
-    return this.name;
-  }
 }

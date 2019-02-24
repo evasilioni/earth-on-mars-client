@@ -1,3 +1,4 @@
+<!-- 
 <div style="width:300px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
@@ -20,4 +21,21 @@
               <button type="button" class="btn btn-light" (click)="saveReview()">Save changes</button>
             </div>
           </div>
-  </div>
+  </div> 
+-->
+<h2 mat-dialog-title>Post a review for {{ title }}</h2>
+
+<mat-dialog-content [formGroup]="form">
+
+        <div><i class="fa fa-star" aria-hidden="true"></i>
+          <select formControlName="selectedValue">
+              <option *ngFor="let s of stars" [ngValue]="s">{{s.name}}</option>
+            </select>
+        </div>
+        <div><input matInput placeholder="Leave a comment .." formControlName="comment" /></div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+</mat-dialog-actions>

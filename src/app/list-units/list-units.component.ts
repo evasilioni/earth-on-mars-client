@@ -17,15 +17,12 @@ export class ListUnitsComponent implements OnInit {
   user: string;
 
   constructor(private listUnit: ListUnitService,
-    private loginService: LoginService,
     private alertService: AlertService,
     private router: Router) { }
 
   ngOnInit() {
     this.getUnits();
-
-    this.user = this.loginService.getUserDetails();
-    
+    this.user = localStorage.getItem("username");
   }
   
   getUnits(){

@@ -11,3 +11,9 @@ div.polaroid {
     font-family: 'Times New Roman';
     font-size: 12px;
   }
+
+  .post-review-btn {
+    font-size: 12px;border: 0px;
+    background-color: white;
+    color: blue
+  }
