@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+body {
+    padding: 20px;
+    background:#F8F2ED;
+    font-family: 'Times New Roman';
+    font-size: 15px;
+    color:rgb(17, 17, 17);
+    height:100%;
+}
+

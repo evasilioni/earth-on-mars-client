@@ -1,0 +1,37 @@
+<h2>Sign In</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="parent-login-div">
+        <div class="child-login-div">
+          <div style="padding:10px;">
+            <div class="login-blueground">
+                <div style="display: inline-block;"><span>Blueground On </span></div>
+                <div class="mars-parent-icon">
+                    <span class="mars-icon">
+                        <i class="fa fa-circle fa-4x"></i>
+                        <span class="mars">Mars</span>
+                    </span>        
+                </div>
+                
+            </div>
+                <div class="form-group position-relative">
+                    <input required id="userName" placeholder="Colonist ID" formControlName="username"
+                        type="text" class="form-control" />
+                        <span class="alert-required" *ngIf="userName?.touched && userName.errors?.required">
+                          </span>
+                </div>
+                <div class="form-group position-relative">
+                    <input required id="password" placeholder="Password" type="password" formControlName="password"
+                        class="form-control"/>
+                        <span class="alert-required" *ngIf="password?.touched && password.errors?.required">
+                        </span> 
+                </div>
+                <div class="form-group" style="font-family: Arial, Helvetica, sans-serif;font-size: 12px;float: right;">
+                    <button class="btn btn-light">Sign In</button>
+                </div>
+            
+          </div>
+        </div>  
+    </div>
+  </form>    
+
+

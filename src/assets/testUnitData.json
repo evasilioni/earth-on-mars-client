@@ -1,0 +1,42 @@
+[
+    {
+        "id": 12,
+        "imageUrl": "https://loremflickr.com/150/150?random=4",
+        "title": "Random Title 4",
+        "region": "Random Region 4",
+        "description": "Random Description 4",
+        "cancellationPolicy": "Random Canc Policy 4",
+        "price": 34400,
+        "score": 3
+    },
+    {
+        "id": 13,
+        "imageUrl": "https://loremflickr.com/150/150?random=4",
+        "title": "Random Title 4",
+        "region": "Random Region 4",
+        "description": "Random Description New one for Number 4",
+        "cancellationPolicy": "Random Canc Policy New one for Number 4",
+        "price": 84215,
+        "score": 0
+    },
+    {
+        "id": 14,
+        "imageUrl": "https://loremflickr.com/150/150?random=4",
+        "title": "Random Title 4",
+        "region": "Random Region 4",
+        "description": "Random Description Cheaper for Number 4",
+        "cancellationPolicy": "Random Canc Policy Cheaper for Number 4",
+        "price": 12574,
+        "score": 0
+    },
+    {
+        "id": 15,
+        "imageUrl": "https://loremflickr.com/150/150?random=5",
+        "title": "Random Title 567",
+        "region": "Random Region 567",
+        "description": "Random Description Cheaper for Number 4",
+        "cancellationPolicy": "Random Canc Policy Cheaper for Number 4",
+        "price": 12574,
+        "score": 4
+    }
+]

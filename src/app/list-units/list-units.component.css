@@ -1,0 +1,78 @@
+
+.mars-circle-parent{
+    display: inline-block;
+    position: relative;
+}
+.mars-circle {
+    position: absolute;
+    border: 1px solid black;
+    display: inline-block;
+    height: 37px;
+    width: 37px;
+    border-radius: 19px;
+
+    height: 40px;
+    width: 40px;
+    border-radius: 21px;
+    font-size: 12px;
+    text-align: center;
+    top: -23px;
+    right: -43px;
+
+    font-size: 12px;    
+    text-align: center;
+}  
+
+.mars-text {
+    position: absolute;
+    bottom: -8px;
+    left: 5px;
+}
+
+.inner-addon { 
+    position: relative; 
+    margin: 20px;
+    max-width: 400px;
+}
+/* style icon */
+.inner-addon .fa {
+    position: absolute;
+    padding: 5px;
+    pointer-events: none;
+  }
+.left-addon .fa  { left:  0px;}  
+.left-addon input  { padding-left:  30px; }
+
+.searchInput {
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    border-radius: 49px;
+    height: 23px;
+  }
+
+  .userLabel {
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 0;
+    margin-bottom: 12px;
+    margin-left: 22px;
+  }  
+  .wrapper {
+    width: 100%;
+  }
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    margin:-10px;
+  }
+  .box>* {
+    flex: 1 1 160px;
+    margin: 10px;
+  }

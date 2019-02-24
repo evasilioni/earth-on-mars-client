@@ -1,0 +1,72 @@
+
+.parent-login-div {
+    border:1px solid gray;
+    padding: 50px;
+    min-height: 600px;
+}
+
+.child-login-div {
+    border: 1px solid gray;
+    max-width: 400px;
+    height: 250px;
+    margin: 0 auto;
+    box-shadow: 5px 5px #d4d3d3;
+}
+
+.login-blueground {
+    margin:10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid gray;
+    width: 100%;   
+  }
+
+.mars-icon {
+    display: inline-block;
+    position: relative;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.mars {
+    position: absolute;
+    top: 14px;
+    right: 19px;
+
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+
+    font-size: 12px;    
+    text-align: center;
+    color: rgb(245, 243, 243);
+}  
+
+.alert-required {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+
+    height: 8px;
+    width: 8px;
+    border-radius: 8px;
+    background-color: red;
+
+    font-size: 12px;    
+    text-align: center;
+}
+
+.mars-parent-icon {
+    vertical-align: middle;
+    margin: 0px 7px 2px 7px;
+    display: inline-block;
+}

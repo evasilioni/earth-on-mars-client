@@ -1,0 +1,24 @@
+
+<div class="polaroid">
+    <img src="{{ unit.imageUrl}}"  alt="5 Terre" style="width:300px;">
+    <div class="container">
+        <div>{{unit.title}} - {{unit.region}}</div>
+        <div>{{unit.description}}</div>
+        <div>{{unit.cancellationPolicy}}</div>
+        <div>{{unit.price  | currency:'EUR'}}</div>
+        <div>
+          <i class="fa fa-star" aria-hidden="true" *ngFor="let r of ratingRange"></i>
+          <i class="fa fa-star-o" aria-hidden="true" *ngFor="let r of unratingRange"></i>
+          <div style="float:right;cursor: pointer;" (click)="openPostReview()">
+              <i class="fa fa-comments-o fa-2x" style="color:blue" aria-hidden="true">
+                <span style="font-size: 12px;">Post Review</span>
+              </i>
+              <review [unitId] = "unit.id" [unitTitle] = "unit.title"
+               [isOpened]="isOpened" [isUpdated] = "isUpdated" (isUpdatedChanged)="this.isUpdated= $event"></review>
+            </div>
+        </div>
+
+    </div>
+  </div>
+
+  

@@ -1,0 +1,23 @@
+<div style="width:300px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+              *ngIf="isOpened">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="modal-title" id="exampleModalLabel">Post a review for {{ unitTitle }}</span>
+            </div>
+            <div class="modal-body">
+              <div><i class="fa fa-star" aria-hidden="true"></i>
+                <select [(ngModel)]="selectedValue">
+                    <option *ngFor="let s of stars" [ngValue]="s">{{s.name}}</option>
+                  </select>
+              </div>
+              <div><textarea placeholder="Leave a comment .." [(ngModel)]="comment"></textarea></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" (click) ="close()">Close</button>
+              <button type="button" class="btn btn-light" (click)="saveReview()">Save changes</button>
+            </div>
+          </div>
+  </div>
