@@ -10,7 +10,8 @@ export class ReviewService {
   }
 
   apply(unitId: number, numberOfStar: number, comment: string) {
-    return this.http.post('http://localhost:8085/reviews', { unitId: unitId, numberOfStar: numberOfStar,
+    return this.http.post('http://localhost:8085/review', 
+    { unitId: unitId, numberOfStar: numberOfStar,
                                 comment: comment})
         .pipe(map((res: any) => {
           return res;

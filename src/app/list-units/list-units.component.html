@@ -30,7 +30,7 @@
             <div class="wrapper">
                     <div class="box" >
                     <div *ngFor="let unit of units | filter : searchText | sortBy : 'score'">
-                            <unit [unit]="unit" [rating]="unit.score"></unit> 
+                            <unit [unit]="unit" (reviewForUnitPosted) = "onPosted($event)"></unit> 
                     </div>
                     </div>
             </div>

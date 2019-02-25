@@ -37,4 +37,8 @@ export class ListUnitsComponent implements OnInit {
     });
   }
 
+  onPosted(posted: boolean) {
+    this.getUnits();
+  }
+
 }

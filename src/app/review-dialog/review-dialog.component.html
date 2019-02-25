@@ -1,0 +1,27 @@
+
+<div class="review-box">
+    <form  [formGroup]="form">
+        <div class="form-group">
+            <div>
+                <span>Star Rating </span>
+                <div class="review-parent">
+                     <span>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <select formControlName="selectedValue" class="review-dropdown">
+                            <option *ngFor="let s of stars" [ngValue]="s">{{s.name}}</option>
+                          </select>
+                     </span>
+                </div>
+             </div>  
+
+            <div><input class="review-input" placeholder="Leave a comment .." formControlName="comment" /></div>
+    
+            <div  style="float:right;padding: 2px;">
+              <input type="button" class="review-button" (click)="cancel()" value="Cancel"/>
+              <input type="button" class="review-button" (click)="save()" value="Save"/>
+            </div>
+    
+        </div>
+      </form>
+</div>
+

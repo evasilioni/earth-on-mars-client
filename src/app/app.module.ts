@@ -12,10 +12,8 @@ import { UnitComponent } from './unit/unit.component';
 import { AlertComponent } from './alert/alert.component';
 import { FilterPipe } from './utilities/filter.pipe';
 import { SortByPipe } from './utilities/sortby.pipe';
-import { ReviewComponent } from './review/review.component';
+import { ReviewDialogComponent } from './review-dialog/review-dialog.component';
 import { SummaryPipe } from './utilities/summary.pipe';
-import { MatDialogModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 @NgModule({
   declarations: [
@@ -27,21 +25,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FilterPipe,
     SortByPipe,
     SummaryPipe,
-    ReviewComponent
+    ReviewDialogComponent
   ],
   imports: [
-    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatDialogModule,
     RouterModule.forRoot([
       { path: '', component: LoginComponent},
       { path: 'listUnits', component: ListUnitsComponent}
     ])
   ],
-  entryComponents: [ReviewComponent],
   providers: [ 
     {
     provide: HTTP_INTERCEPTORS,
@@ -51,4 +46,5 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }

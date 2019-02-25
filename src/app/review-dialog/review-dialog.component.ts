@@ -2,34 +2,28 @@ import { Component, OnInit, Input, Output, EventEmitter, Inject} from '@angular/
 import { ReviewService } from '../services/review.service';
 import { first } from 'rxjs/operators';
 import { AlertService } from '../services/alert.service';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
+// import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'review',
-  templateUrl: './review.component.html',
-  styleUrls: ['./review.component.css']
+  selector: 'review-dialog',
+  templateUrl: './review-dialog.component.html',
+  styleUrls: ['./review-dialog.component.css']
 })
-export class ReviewComponent implements OnInit {
-  public selectedValue;
-
+export class ReviewDialogComponent implements OnInit {
   form: FormGroup;
   title:string;
-  unitId:number;
+  selectedValue: any;
+
+  @Input() unitId:number;
 
   public stars = [];
 
-  @Input()  public isUpdated: boolean;
-  @Output() isUpdatedChanged = new EventEmitter();
+  @Output() posted = new EventEmitter<boolean>();
 
   constructor(private reviewService: ReviewService,
     private alertService: AlertService,
-    private fb: FormBuilder,
-    private dialogRef: MatDialogRef<ReviewComponent>,
-    @Inject(MAT_DIALOG_DATA) data) { 
-      this.title = data.title;
-      this.unitId = data.id;
-    }
+    private fb: FormBuilder) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -49,24 +43,24 @@ export class ReviewComponent implements OnInit {
 
   get f() { return this.form.controls; }
 
-  close(){
-    this.dialogRef.close();
+  cancel() {
+    this.posted.emit(true);
   }
 
   save(){
-    if(this.f.selectedValue.value != null){
+    if(this.f.selectedValue.value != null && this.f.selectedValue.value != ''){     
+      console.log(this.unitId);
       this.reviewService.apply(this.unitId, this.f.selectedValue.value.id, this.f.comment.value)
       .pipe(first())
       .subscribe(data => {
-        data;
-        this.isUpdated = true;
-        this.isUpdatedChanged.emit(this.isUpdated);
-        this.dialogRef.close();
+        this.posted.emit(true);
+        this.alertService
+        .success(data.review.numberOfStar + " stars for " + data.unit.title +"-"+ data.unit.region + " completed. Commented that, " + data.review.comment)
       },
       error => {
          this.alertService.error(error);
     });
-  }
+   }
   }
      
 }

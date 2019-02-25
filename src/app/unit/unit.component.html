@@ -11,12 +11,13 @@
           <i class="fa fa-star-o" aria-hidden="true" *ngFor="let r of unratingRange"></i>
           <div style="float:right;cursor: pointer;">
               <i class="fa fa-comments-o fa-2x" style="color:blue" aria-hidden="true">
-                <input type="button" class="post-review-btn" (click)="openDialog(unit)" value="Post Review" />
+                <input type="button" class="post-review-btn" (click)="openDialog()" value="Post Review" />
               </i>
             </div>
         </div>
+        <review-dialog [unitId]="unit.id" (posted)="onPosted($event)"
+        *ngIf="isPostReviewDialogOpen"></review-dialog>
 
     </div>
   </div>
 
-  

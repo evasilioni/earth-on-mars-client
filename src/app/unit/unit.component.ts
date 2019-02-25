@@ -1,7 +1,6 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { Unit } from '../domain/unit';
-import {MatDialog, MatDialogConfig} from "@angular/material";
-import { ReviewComponent } from '../review/review.component';
+
 
 @Component({
   selector: 'unit',
@@ -9,43 +8,34 @@ import { ReviewComponent } from '../review/review.component';
   styleUrls: ['./unit.component.css']
 })
 export class UnitComponent implements OnInit {
+  isPostReviewDialogOpen: boolean = false;
 
-  @Input() unit: Unit[];
-  @Input() rating: number;
+  @Input() unit: Unit;
+  @Output() reviewForUnitPosted = new EventEmitter<boolean>();
 
   public ratingRange = [];
   public unratingRange = [];
 
-  constructor(private dialog: MatDialog) { }
+  constructor() { }
 
   ngOnInit() {
     
 
-    for(let i=0; i<this.rating; i++){
+    for(let i=0; i<this.unit.score; i++){
       this.ratingRange.push(i);
     }
 
-    for(let i=0; i< (5-this.rating); i++){
+    for(let i=0; i< (5-this.unit.score); i++){
       this.unratingRange.push(i);
     }
   }
 
-  openDialog(unit) {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.position = {
-      'top': '0',
-      left: '0'
-    };
-  
-    dialogConfig.data = {
-      id: unit.id,
-      title: unit.title
-    };
-
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-
-    this.dialog.open(ReviewComponent, dialogConfig);
+  onPosted(posted: boolean) {
+    this.isPostReviewDialogOpen = !posted;
+    this.reviewForUnitPosted.emit(posted);
   }
 
+  openDialog() {
+    this.isPostReviewDialogOpen = !this.isPostReviewDialogOpen;
+  }
 }
