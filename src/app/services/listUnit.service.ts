@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Unit } from '../domain/unit';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -13,16 +13,14 @@ export class ListUnitService {
   constructor(private http: HttpClient) {
     }
 
-getUnits() {
-  return this.http.get('http://localhost:8085/units')
+getUnits(page: number = 1) {
+  let params = new HttpParams();
+
+  params = params.append('page', page.toString());
+  return this.http.get('/api/units?', {params: params})
       .pipe(map((res: any) => {
         this.units = res;
         return res;
       }));  
-}
-    // getUnits() : Observable<Unit[]>{
-    //     return this.http.get<Unit[]>('./assets/testUnitData.json'); 
-    // }
-
-
+  }
 }  

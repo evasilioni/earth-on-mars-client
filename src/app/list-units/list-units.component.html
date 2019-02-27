@@ -26,14 +26,20 @@
                        </div>
                 </div>
             
-        
-            <div class="wrapper">
-                    <div class="box" >
-                    <div *ngFor="let unit of units | filter : searchText | sortBy : 'score'">
-                            <unit [unit]="unit" (reviewForUnitPosted) = "onPosted($event)"></unit> 
-                    </div>
-                    </div>
-            </div>
+        <div style="    height: 500px;
+        width: 100%;
+        border: 1px solid lightgray;
+        overflow: scroll;
+        padding: 0;">
+                <div class="wrapper">
+                        <div class="box" >
+                        <div *ngFor="let unit of units | filter : searchText | sortBy : 'score'">
+                                <unit [unit]="unit" (reviewForUnitPosted) = "onPosted($event)"></unit> 
+                        </div>
+                        </div>
+                </div>
+        </div>
+            
         </div>
 
 

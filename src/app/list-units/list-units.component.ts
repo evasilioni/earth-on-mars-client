@@ -15,6 +15,7 @@ import { LoginService } from '../services/login.service';
 export class ListUnitsComponent implements OnInit {
   units: Unit[];
   user: string;
+  page: number=1;
 
   constructor(private listUnit: ListUnitService,
     private alertService: AlertService,
@@ -26,7 +27,7 @@ export class ListUnitsComponent implements OnInit {
   }
   
   getUnits(){
-    this.listUnit.getUnits()
+    this.listUnit.getUnits(this.page)
       .pipe(first())
       .subscribe(data => {
         this.units = data;
