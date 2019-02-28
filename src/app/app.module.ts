@@ -14,6 +14,7 @@ import { FilterPipe } from './utilities/filter.pipe';
 import { SortByPipe } from './utilities/sortby.pipe';
 import { ReviewDialogComponent } from './review-dialog/review-dialog.component';
 import { SummaryPipe } from './utilities/summary.pipe';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SummaryPipe } from './utilities/summary.pipe';
   imports: [
     BrowserModule,
     FormsModule,
+    InfiniteScrollModule,
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([

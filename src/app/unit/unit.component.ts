@@ -19,8 +19,6 @@ export class UnitComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
-
     for(let i=0; i<this.unit.score; i++){
       this.ratingRange.push(i);
     }

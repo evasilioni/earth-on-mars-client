@@ -1,8 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter, Inject} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { ReviewService } from '../services/review.service';
 import { first } from 'rxjs/operators';
 import { AlertService } from '../services/alert.service';
-// import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -55,7 +54,7 @@ export class ReviewDialogComponent implements OnInit {
       .subscribe(data => {
         this.posted.emit(true);
         this.alertService
-        .success(data.review.numberOfStar + " stars for " + data.unit.title +"-"+ data.unit.region + " completed. Commented that, " + data.review.comment)
+        .success(data.review.numberOfStar + " stars for " + data.unit.title +"-"+ data.unit.region + " completed. Comment: '" + data.review.comment +"'")
       },
       error => {
          this.alertService.error(error);

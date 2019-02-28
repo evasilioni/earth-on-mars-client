@@ -25,21 +25,20 @@
                              </div> 
                        </div>
                 </div>
-            
-        <div style="height: 500px;
-        width: 100%;
-        border: 1px solid lightgray;
-        overflow: scroll;
-        padding: 0;" >
-                <div class="wrapper">
-                        <div class="box" >
-                        <div *ngFor="let unit of units | filter : searchText | sortBy : 'score'">
-                                <unit [unit]="unit" (reviewForUnitPosted) = "onPosted($event)"></unit> 
-                        </div>
-                        </div>
-                </div>
-        </div>
-            
-        </div>
+        
+                <div class="container" style="max-width: 100%">  
+                        <div class="row" infiniteScroll [infiniteScrollDistance]="2" 
+                        [infiniteScrollThrottle]="50" (scrolled)="onScroll()" [scrollWindow]="false"  
+                        style="height: 500px; overflow-y: scroll;border: 1px solid lightgray;width: 100%;">  
+                        <div class="wrapper">
+                              <div class="box" >
+                              <div *ngFor="let unit of units | filter : searchText | sortBy : 'score'">
+                                      <unit [unit]="unit" (reviewForUnitPosted) = "onPosted($event)"></unit> 
+                              </div>
+                              </div>
+                      </div> 
+                        </div>  
+                </div>  
+</div>
 
 

@@ -3,9 +3,7 @@ import { ListUnitService } from '../services/listUnit.service';
 import { Unit } from '../domain/unit';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { User } from '../domain/user';
 import { AlertService } from '../services/alert.service';
-import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'list-units',
@@ -13,9 +11,9 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./list-units.component.css']
 })
 export class ListUnitsComponent implements OnInit {
-  units: Unit[];
+  units: Unit[] = [];
   user: string;
-  page: number=1;
+  page: number = 0;
 
   constructor(private listUnit: ListUnitService,
     private alertService: AlertService,
@@ -29,8 +27,12 @@ export class ListUnitsComponent implements OnInit {
   getUnits(){
     this.listUnit.getUnits(this.page)
       .pipe(first())
-      .subscribe(data => {
-        this.units = data; 
+      .subscribe((data) =>{
+        if (data != undefined) {  
+          data.forEach(unit => {  
+            this.units.push(unit);  
+          });  
+        }  
       },
       error => {
         this.alertService.error(error);
@@ -41,4 +43,11 @@ export class ListUnitsComponent implements OnInit {
   onPosted(posted: boolean) {
     this.getUnits();
   }
+
+  onScroll()  
+  {  
+    this.page = this.page + 1;  
+    this.getUnits();  
+  }  
+  
 }
