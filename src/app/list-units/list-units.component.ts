@@ -30,7 +30,7 @@ export class ListUnitsComponent implements OnInit {
     this.listUnit.getUnits(this.page)
       .pipe(first())
       .subscribe(data => {
-        this.units = data;
+        this.units = data; 
       },
       error => {
         this.alertService.error(error);
@@ -41,5 +41,4 @@ export class ListUnitsComponent implements OnInit {
   onPosted(posted: boolean) {
     this.getUnits();
   }
-
 }

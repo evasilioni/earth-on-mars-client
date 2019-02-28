@@ -4,8 +4,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SortByPipe implements PipeTransform {
     transform(items: any, sortedBy: string): any {
-        if(items.content){
-            return items.content.sort((a, b) => {return b[sortedBy] - a[sortedBy]});
+        if(items){
+            return items.sort((a, b) => {return b[sortedBy] - a[sortedBy]});
         }
     }
 }
